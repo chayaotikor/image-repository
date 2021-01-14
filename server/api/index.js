@@ -1,7 +1,8 @@
-const server = require("./server/api");
+const express = require("express");
+const configureMiddleware = require("../middleware/globalMiddleware");
 
-const PORT = process.env.PORT || 8000;
+const server = express();
 
-server.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
+configureMiddleware(server);
+
+module.exports = server;
