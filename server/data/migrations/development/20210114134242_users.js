@@ -4,13 +4,6 @@ exports.up = function (knex, Promise) {
     tbl.string("email").notNullable().unique();
     tbl.string("password").notNullable();
     tbl.string("username").notNullable().unique();
-    tbl
-      .specificType("favorites", "integer ARRAY")
-      .unsigned()
-      .references("id")
-      .inTable("images")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE")
   });
 };
 

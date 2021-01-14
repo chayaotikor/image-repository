@@ -2,6 +2,8 @@ const express = require("express");
 const parser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const configureMiddleware = require("../middleware/globalMiddleware");
+const errorHandler = require("../middleware/errorHandler");
+const imageRoutes = require("../routes/imageRoutes");
 
 const server = express();
 
@@ -14,5 +16,8 @@ server.use(parser.json());
 server.use(fileUpload()); 
 
 /* ROUTES */
+server.use("/images", imageRoutes);
 
+/* ERROR HANDLER */
+server.use(errorHandler);
 module.exports = server;

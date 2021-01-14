@@ -14,9 +14,9 @@ module.exports = {
     return image;
   },
 
-  addImage: async (image, user) => {
+  addImage: async (image) => {
     const newImageId = await db("images")
-      .insert(image)
+      .insert({...image})
       .returning("id")
       .then((id) => {
         return id;
