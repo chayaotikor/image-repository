@@ -2,7 +2,7 @@ exports.up = function (knex, Promise) {
   return knex.schema.createTable("images", (tbl) => {
     tbl.increments("id").primary().unsigned();
     tbl.string("name").notNullable();
-    tbl.string("image").notNullable();
+    tbl.string("data").notNullable();
     tbl.integer("favorite_count").unsigned().notNullable();
     tbl.specificType("tags", "string ARRAY");
     tbl

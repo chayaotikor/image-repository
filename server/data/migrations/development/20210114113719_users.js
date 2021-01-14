@@ -11,7 +11,6 @@ exports.up = function (knex, Promise) {
       .inTable("images")
       .onDelete("CASCADE")
       .onUpdate("CASCADE")
-      .notNullable();
   });
 };
 
