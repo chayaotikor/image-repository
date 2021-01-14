@@ -1,7 +1,23 @@
-const server = require("./server/api");
+const express = require("express");
+const parser = require("body-parser");
+const fileUpload = require("express-fileupload");
+const configureMiddleware = require("../middleware/globalMiddleware");
+const errorHandler = require("../middleware/errorHandler");
+const imageRoutes = require("../routes/imageRoutes");
 
-const PORT = process.env.PORT || 8000;
+const server = express();
 
-server.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
-});
+/* MIDDLEWARE */
+configureMiddleware(server);
+// x-www-form-urlencoded
+server.use(parser.urlencoded({ extended: false }));
+// application/json
+server.use(parser.json());
+server.use(fileUpload()); 
+
+/* ROUTES */
+server.use("/images", imageRoutes);
+
+/* ERROR HANDLER */
+server.use(errorHandler);
+module.exports = server;
