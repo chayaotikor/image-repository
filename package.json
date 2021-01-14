@@ -1,0 +1,10 @@
+{
+  "name": "image-repository",
+  "version": "1.0.0",
+  "description": "Shopify developer intern challenge question",
+  "main": "index.js",
+  "repository": "https://github.com/cotikor/image-repository.git",
+  "author": "Chaya Otikor <c.otikor@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
